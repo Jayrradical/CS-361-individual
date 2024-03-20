@@ -1,0 +1,13 @@
+12
+Adventures_of_Huckleberry_Finn 7 7 8.25
+All_About_Pizza 4.5 4.5 5.25
+Animal_Farm 5.75 5.75 6.6
+Big_Expensive_Book 100 100 400
+Giant_Book_About_Money 20 20 40
+Greek_Mythology 5 5 6
+Harry_Potter 5.65 5.65 6.5
+Iron_Man_Issue_num_one 6.1 6.1 7
+Moby_Dick 6.6 6.6 7.5
+The_Book_Thief 7.25 7.25 8.75
+The_Odyssey 4.75 4.75 5.5
+CS361_For_Dummies 5 5 10
