@@ -18,5 +18,3 @@ store.o: store.h store.cpp
 
 clean: 
 	rm -f *.o $(exe_file)
-
-

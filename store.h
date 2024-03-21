@@ -33,6 +33,8 @@ class store {
     void place_order(book&);
     float get_order_cost (book &, Order &);
     void place_order_option();
+    void send_command(const string& command);
+    string receive_response();
     void microservice_option();
 
     void add_order(Order&);

@@ -164,15 +164,67 @@ void store::place_order_option() {
     //Inclusivity Hueristic #2 message:
     cout << " " << endl;
     cout << "Cha Ching! An employee can now see how much you have spent in total by selecting:" << endl;
-    cout << "(1) Display store revenue from the employee option screen." << endl;
+    cout << "'Display book orders' from the employee option screen." << endl;
     cout << " " << endl;
 } 
 
+
+void store::send_command(const string& command) {
+    ofstream file_out("social_media_io.txt");
+    if (file_out.is_open()) {
+        file_out << command;
+        file_out.close();
+    } else {
+        cout << "Error: Unable to open file for writing." << endl;
+    }
+}
+
+// Define the receive_response() function to receive a response from the microservice
+string store::receive_response() {
+    ifstream file_in("social_media_io.txt");
+    string response;
+    if (file_in.is_open()) {
+        getline(file_in, response);
+        file_in.close();
+    } else {
+        cout << "Error: Unable to open file for reading." << endl;
+    }
+    return response;
+}
+
 void store::microservice_option() {
     
-    cout << "call partner microservice" << endl;
+    cout << "Calling partner microservice..." << endl;
+
+    int choice;
+    cout << "Enter 1 to add a new social media link or 2 to retrieve links: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        string site, link;
+        cout << "Enter the site name: ";
+        cin >> site;
+        cout << "Enter the site link: ";
+        cin >> link;
+
+        // Sending command to the microservice to add the link
+        send_command("add\n" + site + " " + link + "\n");
+    } else if (choice == 2) {
+        // Sending command to the microservice to get links
+        send_command("get links\n");
+
+        // Receiving response from the microservice
+        string response = receive_response();
+
+        // Displaying the received links
+        cout << "Received links from microservice:" << endl;
+        cout << response << endl;
+    } else {
+        cout << "Invalid choice. Please try again." << endl;
+    }
+}
+
     
-} 
 
 void store::add_order(Order &ord) {
     Order* temp = new Order [this->num_orders + 1];
@@ -217,7 +269,7 @@ void store::add_to_catalogue() {
     
     //Inclusivity Hueristic #2 message:
     cout << " " << endl;
-    cout << "You can now view your newly added item by displaying the catalogue with (1) Display bookstore details" << endl;
+    cout << "You can now view your newly added item by displaying the catalogue with 'Display bookstore details'" << endl;
     cout << " " << endl;
 }
 
