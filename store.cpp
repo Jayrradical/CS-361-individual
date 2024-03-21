@@ -160,6 +160,12 @@ void store::place_order_option() {
         cin >> index;
     }
     this->place_order(this->m.get_book_arr()[index - 1]);
+    
+    //Inclusivity Hueristic #2 message:
+    cout << " " << endl;
+    cout << "Cha Ching! An employee can now see how much you have spent in total by selecting:" << endl;
+    cout << "(1) Display store revenue from the employee option screen." << endl;
+    cout << " " << endl;
 } 
 
 void store::microservice_option() {
@@ -189,6 +195,11 @@ void store::add_to_catalogue() {
     float hardcover_cost;
     float collector_edition_cost;
 
+    //Inclusivity Hueristic #8 message:
+    cout << " " << endl;
+    cout << "Please follow the steps below and review the book information carefully before adding it to the catalogue. Incorrect entries may affect inventory accuracy." << endl;
+    cout << " " << endl;
+
     cout << "What is the name of the item you want to add?" << endl;
     cin >> name;
     New.set_name(name);
@@ -203,6 +214,11 @@ void store::add_to_catalogue() {
     New.set_collector_edition_cost(collector_edition_cost);
     
     this->m.add_to_catalogue(New);
+    
+    //Inclusivity Hueristic #2 message:
+    cout << " " << endl;
+    cout << "You can now view your newly added item by displaying the catalogue with (1) Display bookstore details" << endl;
+    cout << " " << endl;
 }
 
 void store::remove_from_catalogue() {
